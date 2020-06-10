@@ -62,6 +62,8 @@ functions:
       - http:
           method: get
           path: todos
+          authorizer: Auth
+          cors: true
 
   CreateTodo:
     handler: src/lambda/http/createTodo.handler
@@ -86,6 +88,8 @@ functions:
       - http:
           method: post
           path: todos
+          authorizer: Auth
+          cors: true
           request:
             schema:
               application/json: ${file(src/schemas/create-todo.json)}
@@ -113,6 +117,8 @@ functions:
       - http:
           method: patch
           path: todos/{todoId}
+          authorizer: Auth
+          cors: true
           request:
             schema:
               application/json: ${file(src/schemas/update-todo.json)}
@@ -140,6 +146,8 @@ functions:
       - http:
           method: delete
           path: todos/{todoId}
+          authorizer: Auth
+          cors: true
 
   GenerateUploadUrl:
     handler: src/lambda/http/generateUploadUrl.handler
@@ -167,6 +175,8 @@ functions:
       - http:
           method: post
           path: todos/{todoId}/attachment
+          authorizer: Auth
+          cors: true
 
 resources:
   Resources:
@@ -174,7 +184,7 @@ resources:
       Type: AWS::ApiGateway::GatewayResponse
       Properties:
         ResponseParameters:
-          gatewayresponse.header.Access-Control-Allow-Origin: "'*''"
+          gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
           gatewayresponse.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization'"
           gatewayresponse.header.Access-Control-Allow-Methods: "'GET,OPTIONS,POST'"
         ResponseType: DEFAULT_4XX
