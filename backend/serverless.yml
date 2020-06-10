@@ -8,6 +8,9 @@ plugins:
 provider:
   name: aws
   runtime: nodejs12.x
+  tracing:
+    lambda: true
+    apiGateway: true
   environment:
     AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
     TODOS_TABLE: todos-${self:provider.stage}
