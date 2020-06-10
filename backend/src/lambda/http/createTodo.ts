@@ -14,7 +14,7 @@ export const handler = middy(async (event: APIGatewayProxyEvent): Promise<APIGat
   const newTodo: CreateTodoRequest = JSON.parse(event.body)
   const userId = getUserId(event)
 
-  logger.info(`Creating newTodo ${newTodo} for user ${userId}`)
+  logger.info(`Creating new todo ${newTodo} for user ${userId}`)
   const newTodoItem = await createTodo(userId, newTodo)
   return {
     statusCode: 201,

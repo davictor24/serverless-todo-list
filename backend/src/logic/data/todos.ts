@@ -11,7 +11,7 @@ export default class TodosAccess {
     constructor(
         private readonly docClient: DocumentClient = new XAWS.DynamoDB.DocumentClient(),
         private readonly todosTable = config.todosTable,
-        private readonly createdAtIndex = config.createdAtInd
+        private readonly createdAtIndex = config.createdAtIndex
     ) {}
 
     async getTodos(userId: string): Promise<TodoItem[]> {

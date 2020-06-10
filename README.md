@@ -171,7 +171,7 @@ Once you have finished developing your application, please set `apiId` and Auth0
 
 # Suggestions
 
-To store TODO items, you might want to use a DynamoDB table with local secondary index(es). A create a local secondary index you need to create a DynamoDB resource like this:
+To store TODO items, you might want to use a DynamoDB table with local secondary index(es). To create a local secondary index you need to create a DynamoDB resource like this:
 
 ```yml
 
