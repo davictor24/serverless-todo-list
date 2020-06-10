@@ -11,7 +11,7 @@ provider:
   environment:
     AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
     TODOS_TABLE: todos-${self:provider.stage}
-    IMAGES_BUCKET: todos-${self:provider.stage}
+    IMAGES_BUCKET: todos-davictor-${self:provider.stage} # Note to self: Bucket names must be globally unique
     CREATED_AT_INDEX: createdAtIndex
   stage: ${opt:stage, 'dev'}
   region: ${opt:region, 'us-east-2'}
